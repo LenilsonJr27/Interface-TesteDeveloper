@@ -4,29 +4,18 @@ using System.Collections.Generic;
 
 namespace TesteDeveloper
 {
-    /// <summary>
-    /// Implementação da administração de estoque
-    /// </summary>
+    
     public class GerenciadorEstoque
     {
-        //Saldos de estoque por referência
+ 
         private readonly IList<EstoqueProduto> _estoques;
 
-        /// <summary>
-        /// Construtor da classe
-        /// </summary>
-        /// <param name="estoques">Saldos de estoquee por referência</param>
         public GerenciadorEstoque(IList<EstoqueProduto> estoques)
         {
             _estoques = estoques ?? throw new ArgumentNullException(nameof(estoques));
         }
 
-        /// <summary>
-        /// Verifica se a quantidade requerida existe no estoque da referência
-        /// </summary>
-        /// <param name="referencia">Identificador da referência/produto</param>
-        /// <param name="quantidadeRequerida">Quantidade requerida</param>
-        /// <returns>Indica se a quantidade requerida existe ou não no estoque</returns>
+        
         public bool EstoqueDisponivel(string referencia, int quantidadeRequerida)
         {
             foreach (var produto in _estoques)
@@ -37,15 +26,8 @@ namespace TesteDeveloper
                 }
             }
             return false;
-            //TODO - Implemente sua lógica para validar o estoque da referência contra a quantidade requerida
-            //Dica: Os estoques estão na lista _estoques inicializada no construtor
-        }
+            }
 
-        /// <summary>
-        /// Buscar saldo de estoque da referência
-        /// </summary>
-        /// <param name="referencia">Identificador da referência/produto</param>
-        /// <returns>Saldo de estoque</returns>
         public int GetSaldo(string referencia)
         {
             foreach (var produto in _estoques)
@@ -56,19 +38,10 @@ namespace TesteDeveloper
                 }
             }
             return 0;
-            //TODO - Implemente sua lógica para buscar e retornar o estoque da referência
-            //Dica: Os estoques estão na lista _estoques inicializada no construtor
         }
 
 
-        /// <summary>
-        /// Gera string com os estoques no formato [Referência: {Referencia} Saldo: {SaldoEstoque}] com uma linha para cada referência
-        /// Ex: 
-        /// Referência: A345 Saldo: 98
-        /// Referência: B456 Saldo: 15
-        /// 
-        /// </summary>
-        /// <returns>String formatada</returns>
+        
         public override string ToString()
         {
             var res = new List<string>();
@@ -77,10 +50,58 @@ namespace TesteDeveloper
                 res.Add($"referência : {produto.Referencia} saldo : {produto.SaldoEstoque}");
             }
             return string.Join("\n", res);
-            //TODO - Implemente sua lógica para formatar uma string no formato esperado
-            //Dica: Os estoques estão na lista _estoques inicializada no construtor
         }
 
 
     }
+
+    public class EstoqueService
+    {
+        private readonly List<EstoqueProduto> _produtos;
+
+        public EstoqueService()
+        {
+            _produtos = new List<EstoqueProduto>();
+        }
+
+        public List<EstoqueProduto> Listar()
+        {
+            return _produtos;
+        }
+
+        public EstoqueProduto BuscarPorId(int id)
+        {
+            return _produtos.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Adicionar(EstoqueProduto produto)
+        {
+            produto.Id = _produtos.Any()
+                ? _produtos.Max(x => x.Id) + 1
+                : 1;
+
+            _produtos.Add(produto);
+        }
+
+        public void Atualizar(EstoqueProduto produto)
+        {
+            var existente = BuscarPorId(produto.Id);
+
+            if (existente == null)
+                return;
+
+            existente.Referencia = produto.Referencia;
+            existente.SaldoEstoque = produto.SaldoEstoque;
+        }
+
+        public void Remover(int id)
+        {
+            var produto = BuscarPorId(id);
+
+            if (produto != null)
+                _produtos.Remove(produto);
+        }
+    }
+
+
 }

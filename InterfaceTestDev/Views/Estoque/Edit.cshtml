@@ -1,0 +1,21 @@
+﻿@model EstoqueProduto
+
+<form asp-action="Edit" method="post">
+
+    <input asp-for="Id" type="hidden"/>
+
+    <div class="mb-3">
+        <label asp-for="Referencia"></label>
+        <input asp-for="Referencia" class="form-control"/>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="SaldoEstoque"></label>
+        <input asp-for="SaldoEstoque" class="form-control"/>
+    </div>
+
+    <button class="btn btn-primary">
+        Salvar Alterações
+    </button>
+
+</form>

@@ -20,8 +20,20 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+[C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Estoque/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Estoque/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Estoque/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Estoque/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lenil/source/repos/InterfaceTestDev/InterfaceTestDev/Views/Home/Privacy.cshtml]
